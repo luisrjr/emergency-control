@@ -1,60 +1,53 @@
-import {useEffect} from "react";
+import React, {useState, useEffect } from "react";
 import './App.css';
 
-const EmergButtons = (props) => {
+const emergencies = ["House Fire Emergency", "Forest Fire Emergency", "Earthquake Emergency"];
+
+
+const App = () => {
+  
+  const EmergButtons = (props) => {
+    
+
     return (
      <button>{props.name}</button>
     );
   }
 
-const DisplayEmergency = () => {
- let emergencies = [
-        { id:1,
-          name: "House Fire Emergency",
-          message: "Put out the fire in the house"},
-        { id:2,
-          name: "Forest Fire Emergency",
-        message: "Put out the Forest Fire"}
-      ]
-
-let randomEmergency = Math.floor(Math.random() * emergencies.length);
-  
-    return (
-      <h1>{emergencies[randomEmergency].name}</h1>
-    );   
-  }
-
-  const startInterval = setInterval(() => {
-    DisplayEmergency();
-}, 30000);
-
-    //Clearing the interval
-    const stopInterval = setTimeout(() => {
-      clearInterval(startInterval);
-    });
-
-const App = () => {
-
-  //const {timer} = useState("10000");
+  const DisplayEmergency = () => {
+    const [emergency, updateEmergency] = useState("");
+    
+    const randomEmergency = () => {
+      const index = Math.floor(Math.random() * emergencies.length);
+       return (
+        updateEmergency(emergencies[index])
+       )
+    }
 
     useEffect(() => {
-      setInterval(() => {
-        DisplayEmergency();
-    }, 30000);
-      setTimeout(stopInterval, 400000)
-    })    
+       const intervalID = setInterval(randomEmergency, 5000);
+       return () => clearInterval(intervalID);
+    }, []);
+  
+  return (
+    <h1>{emergency}</h1>
+  );   
+}
+  
+
 
   return (
     <div className="App">
       <body>
-      <DisplayEmergency />
+      <div>
+        <DisplayEmergency />
+      </div>
       <div className='button-container'>
       <div className="button-grid">
-      <EmergButtons name="Fire Extinguisher"/>
+      <EmergButtons name="Extinguish"/>
       <EmergButtons name="Ambulance"/>
       <EmergButtons name="Helicopter"/>
       <EmergButtons name="Police"/>
-      <EmergButtons name="First-Aid"/>
       </div>
       </div>
       </body>
