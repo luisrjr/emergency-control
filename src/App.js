@@ -2,11 +2,18 @@ import React, {useState} from "react";
 //import Countdown from 'react-countdown';
 import './App.css';
 
-const emergencies = [
-    "House Fire Emergency",
-    "Forest Fire Emergency",
-    "Earthquake Emergency"
-  ];
+const emergencies = [{
+    "name": "House Fire Emergency",
+    "message": "Put water on the fire"
+    },
+    {
+    "name":"Forest Fire Emergency",
+    "message":"Extinguish the forest fire"
+    },
+    {
+    "name":"Earthquake Emergency",
+    "message": "There's been an earthquake, call the police!'"
+    }];
 
 
 
@@ -25,11 +32,14 @@ const handleClick = () => {
     <div className="App">
       <body>
         <div>
-          <h1>{emergency}</h1>
+          <h1>{emergency.name}</h1>
         </div>
           <div className="button-grid">
             <button onClick={handleClick}>Start</button>
           </div>
+           <div id="emergency-message">
+            {emergency.message}
+        </div> 
       </body>
     </div>
   );
