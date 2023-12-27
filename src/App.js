@@ -15,6 +15,7 @@ const emergencies = [{
     "message": "There's been an earthquake, call the police!'"
     }];
 
+const time = [240, 100, 400, 50]
 
 
 
@@ -22,9 +23,23 @@ const App = () => {
   const [emergency, setEmergency] = useState("");
 
 
+
 const handleClick = () => {
   let index = Math.floor(Math.random() * emergencies.length);
   setEmergency(emergencies[index]);
+}
+
+const Timer = () => {
+  let timeIndex = Math.floor(Math.random() * time.length);
+  let countdown = time[timeIndex];
+   if (countdown <= 0) {
+     countdown -= 1;
+   }
+    return (
+      <div>
+      <span>{countdown}</span>
+      </div>
+    )
 }
 
 
@@ -40,6 +55,7 @@ const handleClick = () => {
            <div id="emergency-message">
             {emergency.message}
         </div> 
+        <Timer />
       </body>
     </div>
   );
