@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState,useEffect} from "react";
 //import Countdown from 'react-countdown';
 import './App.css';
 
@@ -26,8 +26,20 @@ function DisplayEmergency() {
 }
 
 function DisplayCountdown() {
+  const [timer, setTimer] = useState(0)
   let timeIndex = Math.floor(Math.random() * countdownTimes.length);
   let countdown = countdownTimes[timeIndex];
+  
+  useEffect = (() => {
+    setTimer = countdown;
+    const intervalId = setInterval(() => {
+      setTimer(timer - 1);
+    }, 1000)
+    return () => {
+      clearInterval(intervalId);
+    })
+  }, [timer])
+  
   return (
     <h1>{countdown}</h1>
   )
