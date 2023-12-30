@@ -35,16 +35,6 @@ function DisplayCountdown() {
   
 
 const App = () => {
-  
-    //
-
-  
-
-  //
-  //let emergency = emergencies[index];
- 
-
-  
   /*
     const Timer = () => {
       const [time, setTime] = useState();
