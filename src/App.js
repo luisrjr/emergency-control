@@ -33,7 +33,7 @@ const App = () => {
   //let countdown = countdownTimes[timeIndex];
 
   useEffect(() => {
-    setTimeout(() => setSeconds(seconds - 1), 1000);
+    seconds > 0 && setTimeout(() => setSeconds(seconds - 1), 1000);
   }, [seconds]);
 
   return (
