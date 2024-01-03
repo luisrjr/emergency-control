@@ -19,13 +19,10 @@ const emergencies = [
 
 const countdownTimes = [240, 100, 200, 150, 250, 60, 350, 75, 30];
 
-function DisplayEmergency() {
+const App = () => {
   let index = Math.floor(Math.random() * emergencies.length);
   let emergency = emergencies[index].name;
-  return <h1>{emergency}</h1>;
-}
 
-const App = () => {
   const [seconds, setSeconds] = useState(
     countdownTimes[Math.floor(Math.random() * countdownTimes.length)],
   );
@@ -38,8 +35,10 @@ const App = () => {
 
   return (
     <div>
-      <DisplayEmergency />
-      <div>{seconds}</div>
+      <h1>{emergency}</h1>
+      <div>
+        <h3>{seconds}</h3>
+      </div>
     </div>
   );
 };
