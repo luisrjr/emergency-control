@@ -4,15 +4,15 @@ import "./App.css";
 
 const emergencies = [
   {
-    name: "1st Emergency",
+    name: "Fire Emergency",
     message: "Put water on the fire",
   },
   {
-    name: "2nd Emergency",
+    name: "Forest Fire Emergency",
     message: "Extinguish the forest fire",
   },
   {
-    name: "3rd Emergency",
+    name: "Earthquake Emergency",
     message: "There's been an earthquake, call the police!'",
   },
 ];
